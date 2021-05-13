@@ -1,0 +1,45 @@
+
+
+@charset "UTF-8";
+body{
+	background-color: #826693;	
+}
+
+.noticeUpdateSection{
+	position: absolute;
+	top: 35%;	
+	right: 8%;
+	width: 90%;
+	height: 400px;
+}
+
+.noticeUpdateSection textarea{
+	position: relative;
+    right: -8%;
+    width: 92%;
+    height: 300px;
+}
+.notice_writer, .notice_title{
+	position: relative;
+	left: 8%;
+	width: 20%;
+}
+
+.writebtn{
+	position: absolute;
+    bottom: 15px;
+    right: 3px;
+}
+
+.btn_1{
+	height: 40px;
+	width: 80px;
+	display: flex;
+	align-items: center;
+	justify-content:center;
+}
+
+.genric-btn{
+	position: relative;
+	left: 50%;
+}

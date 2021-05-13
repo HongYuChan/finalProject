@@ -1,0 +1,76 @@
+
+
+@charset "UTF-8";
+body{
+	background-color: #826693;	
+}
+
+.boardSection{
+	position: absolute;
+	top: 35%;	
+	right: 8%;
+	width: 90%;
+}
+
+.boardTable{
+    position: relative;
+    left: 8%;
+    top: 50%;
+    width: 92%;	
+    background-color: white;
+}
+
+.boardTable .headRow>td{
+    height: 39px;
+    font-size: 13px;
+    color: darkgray;
+   	border-bottom: 0.5px solid;
+   	border-top: 0.5px solid;
+    border-color: lightgray;
+}
+
+.boardTable td{
+    padding-left: 35px;
+    text-align: left;
+    font-size: 15px;
+    height: 84px;
+}
+
+tr:hover{
+	background-color: #f2f2f2;
+	border-color: #f2f2f2;
+	border: 1px solid;
+}
+
+.pagingBox{
+	position: relative;
+    bottom: 24px;
+	left: 45%;
+	width: 150px;
+}
+.searchBox{
+	position: absolute;
+    top: -40px;
+    right: -64px;
+    width: 450px;
+}
+.searchBox form{
+	display: flex;
+	align-items: center;
+	justify-content:center;
+}
+.searchForm input{
+}
+.writebtn{
+	position: absolute;
+    bottom: 15px;
+    right: 3px;
+}
+.btn_1{
+	height: 40px;
+	width: 80px;
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	
+}
