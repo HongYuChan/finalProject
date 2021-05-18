@@ -1,13 +1,12 @@
-package org.used.noticeBoard;
+package org.used.mapper;
 
-import org.apache.catalina.mapper.Mapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.used.boardDomain.NoticeBoardVO;
-import org.used.noticeBoardMapper.NoticeBoardMapper;
+import org.used.domain.NoticeBoardVO;
+import org.used.mapper.NoticeBoardMapper;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -74,13 +73,19 @@ public class NoticeBoardMapperTests {
 		
 		NoticeBoardVO vo = new NoticeBoardVO();
 		vo.setNotice_id(1L);
-		vo.setNotice_title("updateTitle");
-		vo.setNotice_contents("updateContents");
+		vo.setNotice_title("updateTitleㅋ");
+		vo.setNotice_contents("updateContentsㅋ");
 		
 		int count = noticeMapper.update(vo);
 		
 		log.info("UPDATE COUNT: " + count);
 	}
+	
+
+	
+	
+	
+	
 	
 	
 }

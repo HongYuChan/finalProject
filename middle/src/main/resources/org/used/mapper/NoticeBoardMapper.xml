@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="org.used.noticeBoardMapper.NoticeBoardMapper">
+<mapper namespace="org.used.mapper.NoticeBoardMapper">
 
-	<select id="getList" resultType="org.used.boardDomain.NoticeBoardVO">
+	<select id="getList" resultType="org.used.domain.NoticeBoardVO">
 		<![CDATA[
 		select * from notice where notice_id > 0 order by notice_id desc
 		]]>
@@ -24,7 +24,7 @@
 		values( #{notice_id}, #{notice_title}, #{notice_contents}, #{notice_writer}, SYSDATE)
 	</insert>
 
-	<select id="read" resultType="org.used.boardDomain.NoticeBoardVO">
+	<select id="read" resultType="org.used.domain.NoticeBoardVO">
 		select * from notice where notice_id = #{notice_id}
 	</select>
  

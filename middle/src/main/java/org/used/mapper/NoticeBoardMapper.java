@@ -1,9 +1,9 @@
-package org.used.noticeBoardMapper;
+package org.used.mapper;
 
 
 import java.util.List;
 
-import org.used.boardDomain.NoticeBoardVO;
+import org.used.domain.NoticeBoardVO;
 
 public interface NoticeBoardMapper {
 	
