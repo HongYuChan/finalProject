@@ -34,6 +34,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/kostaFinalSTS/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="C:/finalProjectSTS/ojdbc8.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
