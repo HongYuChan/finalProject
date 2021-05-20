@@ -21,6 +21,16 @@ public class ProductController {
 
 	private ProductService service;
 	
+	@GetMapping("/main")
+	public void main(){
+		log.info("main...........");
+	}
+	
+	@GetMapping("/product")
+	public void product(){
+		log.info("product...........");
+	}
+	
 	@GetMapping("/list")
 	public void list(Model model){
 		

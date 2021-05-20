@@ -229,7 +229,7 @@
 
 											e.preventDefault();
 											actionForm
-													.append("<input type='hidden' name='bno' value='"
+													.append("<input type='hidden' name='product_id' value='"
 															+ $(this).attr(
 																	"href")
 															+ "'>");
