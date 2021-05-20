@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.used.mapper.MemberMapper">
+	<select id="getList" resultType="org.used.domain.MemberVO">
+		<![CDATA[select * from member where user_id > 0]]>
+	</select>
+
+	<select id="read" resultType="org.used.domain.MemberVO">
+		select * from member where user_id = #{user_id}
+	</select>
+
+	<delete id="delete">
+		delete from member where user_id = #{user_id}
+	</delete>
+	
+	<update id="update">
+		update member set password = #{password},
+		nickname = #{nickname},
+		email = #{email}
+		where user_id = #{user_id}
+	</update>
+	
+	<select id="readImg" resultType="org.used.domain.UserImageVO">
+		select * from member_img where user_id = #{user_id}
+	</select>
+</mapper>
