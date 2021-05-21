@@ -17,11 +17,11 @@ import lombok.extern.log4j.Log4j;
 public class MypageController {
 
 	private UserMainService service;
-	
-	@GetMapping("/main2")
-	public void get2(){
-		System.out.println("AAAAAAAAAAAAAa");
-	}
+//	
+//	@GetMapping("/main2")
+//	public void get2(){
+//		System.out.println("AAAAAAAAAAAAAa");
+//	}
 	
 	@GetMapping("/main")
 	public void getMain(@RequestParam("user_id") int user_id, Model model){

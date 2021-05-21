@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.used.mapper.ProductMapper">
+
+<select id="dealList" resultType="org.used.domain.ProductVO">
+	<![CDATA[select * from product where product_id > 0 ]]>
+</select>
+<!-- join을 어떻게 써서 user_id간에 매칭시킬지 고민 해보기 -->
+
+
+<select id="lastDeal" resultType="org.used.domain.ProductVO">
+	select * from product where product_id = #{product_id}
+</select>
+
+<select id="buyList">
+	select * from product p inner join member m  
+</select>
+
+</mapper>
