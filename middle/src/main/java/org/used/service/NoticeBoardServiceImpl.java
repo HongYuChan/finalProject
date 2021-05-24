@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.used.domain.Criteria;
 import org.used.domain.NoticeBoardVO;
 import org.used.mapper.NoticeBoardMapper;
 
@@ -28,11 +29,17 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 		mapper.insertSelectKey(noticeBoard);	
 	}
 
+//	@Override
+//	public List<NoticeBoardVO> getList() {
+//
+//		log.info("getList");
+//		return mapper.getList();
+//	}
 	@Override
-	public List<NoticeBoardVO> getList() {
-
-		log.info("getList");
-		return mapper.getList();
+	public List<NoticeBoardVO> getList(Criteria cri) {
+		
+		log.info("getList with criteria: " + cri);
+		return mapper.getListWithPaging(cri);
 	}
 
 
