@@ -67,18 +67,40 @@ public class NoticeBoardControllerTest {
 //					.getModelMap());
 //	}
 	
+//	@Test
+//	public void testModify() throws Exception{
+//		
+//		String resultPage = mockMvc
+//				.perform(MockMvcRequestBuilders.post("/noticeBoard/modify")
+//						.param("notice_id", "62")
+//						.param("notice_title", "수정된 테스트 제목")
+//						.param("notice_contents", "수정된 테스트 내용")
+//						.param("notice_writer", "user00"))
+//				.andReturn().getModelAndView().getViewName();
+//		
+//		log.info(resultPage);
+//	}
+	
+//	@Test
+//	public void testRemove()throws Exception{
+//		
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/noticeBoard/remove")
+//				.param("notice_id", "27")
+//				).andReturn().getModelAndView().getViewName();
+//		
+//		log.info(resultPage);
+//	}
+	
 	@Test
-	public void testModify() throws Exception{
+	public void testListPaging() throws Exception {
 		
-		String resultPage = mockMvc
-				.perform(MockMvcRequestBuilders.post("/noticeBoard/modify")
-						.param("notice_id", "62")
-						.param("notice_title", "수정된 테스트 제목")
-						.param("notice_contents", "수정된 테스트 내용")
-						.param("notice_writer", "user00"))
-				.andReturn().getModelAndView().getViewName();
-		
-		log.info(resultPage);
+		log.info(mockMvc.perform(
+				MockMvcRequestBuilders.get("/noticeBoard/list")
+				.param("pageNum", "2")
+				.param("amount", "50"))
+				.andReturn().getModelAndView().getModelMap());
 	}
+	
+	
 	
 }

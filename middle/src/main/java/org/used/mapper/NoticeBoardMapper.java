@@ -3,6 +3,7 @@ package org.used.mapper;
 
 import java.util.List;
 
+import org.used.domain.Criteria;
 import org.used.domain.NoticeBoardVO;
 
 public interface NoticeBoardMapper {
@@ -21,7 +22,7 @@ public interface NoticeBoardMapper {
 	public int update(NoticeBoardVO noticeBoard);
 
 	
-//	public List<NoticeBoardVO> getListWithPaging(Criteria cri);
+	public List<NoticeBoardVO> getListWithPaging(Criteria cri);
 
 //	public int getTotalCount(Criteria cri);
 	
