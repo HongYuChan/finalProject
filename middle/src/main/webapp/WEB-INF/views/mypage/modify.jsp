@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	var formObj = $("form");
 	
 	$('button').on("click", function(e) {
 		e.preventDefault();
+		
 		var operation = $(this).data("oper");
 		
 		if(operation === 'remove'){
@@ -25,7 +26,7 @@ $(document).ready(function() {
 			var newpw = $("#new_pw").val();
 			var pwcheck =$("#pwcheck").val();
 			
-			if(oldpw != /* 여기에 db에서 데이터 가져와야함 */){
+			 if(oldpw !=  /* 여기에 db에서 데이터 가져와야함  */){
 				if(newpw != "" || pwcheck !="" ){
 					if(newpw == pwcheck){
 						formObj.submit();
@@ -37,10 +38,10 @@ $(document).ready(function() {
 				};
 			}else{
 				alert("비밀번호가 다릅니다")
-			}
-		});	
+			}//else end 
+		});	//function end
 	
-	});
+	});//button click end
 });
 </script>
 
@@ -54,6 +55,16 @@ $(document).ready(function() {
 			<li>${member.id}</li>
 		</ul>
 	</div>
+
+	<form action="uploadFormAction" method="post" enctype="multipart/form-data">
+		<input type="file" name="profile">
+		<button>사진 추가</button>
+	</form>
+	<!-- <div class='uploadDiv'>
+		<input type="file" name="profile">
+		<button id="upload">사진 추가</button>
+	</div> -->
+
 	<form role="form" action="/mypage/modify" method="post">
 		<div class="form-group">
 			<input type="hidden" name="user_id"

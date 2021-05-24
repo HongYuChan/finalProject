@@ -32,5 +32,6 @@
 	<mybatis-spring:scan base-package="org.used.mapper"></mybatis-spring:scan>
 	
 	<context:component-scan base-package="org.used.service"></context:component-scan>
+	
 
 </beans>

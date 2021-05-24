@@ -1,5 +1,7 @@
 package org.used.controller;
 
+import java.io.File;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.used.domain.MemberVO;
 import org.used.service.ModifyService;
@@ -26,6 +29,24 @@ public class ModifyController {
 	private UserMainService user_service;
 	private ModifyService modify_service;
 	
+	
+	
+	@PostMapping("/uploadFormAction")
+	public void uploadFormPost(MultipartFile[] uploadfile, Model model){
+		String uploadFolder ="C:\\upload";
+		System.out.println("しししし");
+		for(MultipartFile multipartFile : uploadfile){
+		File profile = new File(uploadFolder, multipartFile.getOriginalFilename());
+		System.out.println(profile);
+		try {
+			multipartFile.transferTo(profile);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+				
+		}
+	}
+	
 	@GetMapping("/modify")
 	public void getModify(@RequestParam("user_id") int user_id, Model model){
 		model.addAttribute("member", user_service.member(user_id));
@@ -40,7 +61,7 @@ public class ModifyController {
 			rttr.addFlashAttribute("result", "success");
 			System.out.println("22222222");
 		}
-		return "redirect:/mypage/main?user_id=3";
+		return "redirect:/mypage/main?user_id=4";
 	}
 	
 	
