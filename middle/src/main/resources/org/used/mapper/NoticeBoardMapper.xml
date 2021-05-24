@@ -40,4 +40,19 @@
  				where notice_id = #{notice_id}
  	</update>
 
+	<select id="getListWithPaging" resultType="org.used.domain.NoticeBoardVO">
+		<![CDATA[
+	select 
+		notice_id, notice_title, notice_contents, notice_writer, notice_date
+	from
+		(
+		select /*+index_desc(notice SYS_C007430)*/
+			rownum rn, notice_id, notice_title, notice_contents, notice_writer, notice_date
+		from 
+			notice
+		where rownum <= #{pageNum} * #{amount}
+		)
+	where rn > (#{pageNum} -1) * #{amount}
+	]]>
+	</select>
 </mapper>

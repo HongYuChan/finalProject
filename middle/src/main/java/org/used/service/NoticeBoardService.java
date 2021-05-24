@@ -2,6 +2,7 @@ package org.used.service;
 
 import java.util.List;
 
+import org.used.domain.Criteria;
 import org.used.domain.NoticeBoardVO;
 
 public interface NoticeBoardService {
@@ -14,7 +15,9 @@ public interface NoticeBoardService {
 	
 	public boolean remove(Long notice_id);
 	
-	public List<NoticeBoardVO> getList();
+//	public List<NoticeBoardVO> getList();
+	public List<NoticeBoardVO> getList(Criteria cri);
+
 	
 //	public int getTotal(Criteria cri);
 	
