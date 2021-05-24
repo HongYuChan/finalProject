@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.used.domain.Criteria;
 import org.used.domain.NoticeBoardVO;
 import org.used.service.NoticeBoardService;
 
@@ -53,26 +54,31 @@ public class NoticeBoardServiceTests {
 //		log.info(service.get(50L));
 //	}
 	
-	@Test
-	public void testDelete(){
-		
-		log.info("remove result: " + service.remove(50L));
-	}
+//	@Test
+//	public void testDelete(){
+//		
+//		log.info("remove result: " + service.remove(50L));
+//	}
+	
+//	@Test
+//	public void testUpdate(){
+//		
+//		NoticeBoardVO vo = service.get(1L);
+//		
+//		if (vo == null) {
+//			return;
+//		}
+//		
+//		vo.setNotice_title("service테스트타이틀");
+//		log.info("update: " + service.modify(vo));
+//	}
 	
 	@Test
-	public void testUpdate(){
+	public void testGetList(){
 		
-		NoticeBoardVO vo = service.get(1L);
-		
-		if (vo == null) {
-			return;
-		}
-		
-		vo.setNotice_title("service테스트타이틀");
-		log.info("update: " + service.modify(vo));
+//		service.getList().forEach(noticeBoard -> log.info(noticeBoard));
+		service.getList(new Criteria(2, 10)).forEach(noticeBoard -> log.info(noticeBoard));
 	}
-	
-	
 	
 	
 	
