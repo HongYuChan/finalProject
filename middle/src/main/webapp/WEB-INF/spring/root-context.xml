@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -19,7 +20,7 @@
       <property name="username" value="middle_project" />
       <property name="password" value="1234" />
    </bean>
-
+   
    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
       destroy-method="close">
       <constructor-arg ref="hikariConfig" />
@@ -28,9 +29,18 @@
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
       <property name="dataSource" ref="dataSource" />
    </bean>
+   
+   <bean
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		id="transactionManager">
+
+		<property name="dataSource" ref="dataSource" />
+
+	</bean>
 	
 	<mybatis-spring:scan base-package="org.used.mapper"></mybatis-spring:scan>
 	
 	<context:component-scan base-package="org.used.service"></context:component-scan>
 
+	<context:component-scan base-package="org.used.domain" />
 </beans>
