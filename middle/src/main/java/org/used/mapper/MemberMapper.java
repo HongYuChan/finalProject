@@ -17,4 +17,6 @@ public interface MemberMapper {
 	public int update(MemberVO member);
 	
 	public UserImageVO readImg(int user_id);
+	
+	public int update(UserImageVO userImageVO);
 }

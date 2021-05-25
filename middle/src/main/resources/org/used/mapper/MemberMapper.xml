@@ -25,4 +25,6 @@
 	<select id="readImg" resultType="org.used.domain.UserImageVO">
 		select * from member_img where user_id = #{user_id}
 	</select>
+	
+	
 </mapper>
