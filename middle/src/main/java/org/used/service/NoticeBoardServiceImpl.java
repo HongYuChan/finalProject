@@ -66,6 +66,13 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 		return mapper.delete(notice_id) == 1;
 	}
 
+	@Override
+	public int getTotal(Criteria cri) {
+
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
+
 
 
 }

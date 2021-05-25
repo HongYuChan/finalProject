@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +36,14 @@ public class NoticeBoardController {
 		
 		log.info("list: " + cri);
 		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		
+		int total = service.getTotal(cri);
+		
+		log.info("total: " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
 	}
 	
 	@PostMapping("/register")
@@ -58,20 +66,26 @@ public class NoticeBoardController {
 	
 	
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("notice_id") Long notice_id, Model model){
+	public void get(@RequestParam("notice_id") Long notice_id,  @ModelAttribute("cri") Criteria cri, Model model){
 		
 		log.info("/get or modify");
 		model.addAttribute("noticeBoard", service.get(notice_id));
 	}
 	
 	@PostMapping("/modify")
-	public String modify(NoticeBoardVO noticeBoard, RedirectAttributes rttr) {
+	public String modify(NoticeBoardVO noticeBoard, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		
 		log.info("modify: " + noticeBoard);
 		
 		if (service.modify(noticeBoard)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
 		return "redirect:/noticeBoard/list";
 	}
 	
@@ -80,12 +94,17 @@ public class NoticeBoardController {
 	
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("notice_id") Long notice_id, RedirectAttributes rttr){
+	public String remove(@RequestParam("notice_id") Long notice_id, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
 		
 		log.info("remove...." + notice_id);
 		if(service.remove(notice_id)){
 			rttr.addFlashAttribute("result", "success");
 		}
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
 		return "redirect:/noticeBoard/list";
 	}
 	
