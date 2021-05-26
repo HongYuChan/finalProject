@@ -24,7 +24,7 @@ public interface NoticeBoardMapper {
 	
 	public List<NoticeBoardVO> getListWithPaging(Criteria cri);
 
-//	public int getTotalCount(Criteria cri);
+	public int getTotalCount(Criteria cri);
 	
 	
 	

@@ -85,19 +85,30 @@ public class NoticeBoardMapperTests {
 //		log.info("UPDATE COUNT: " + count);
 //	}
 	
-@Test
-public void testPaging(){
-	Criteria cri = new Criteria();
+//@Test
+//public void testPaging(){
+//	Criteria cri = new Criteria();
+//	
+//	cri.setPageNum(4);
+//	cri.setAmount(10);
+//	
+//	List<NoticeBoardVO> list = noticeMapper.getListWithPaging(cri);
+//	
+//	list.forEach(noticeBoard -> log.info(noticeBoard));
+//}
 	
-	cri.setPageNum(4);
-	cri.setAmount(10);
+@Test
+public void testSearch(){
+	
+	Criteria cri = new Criteria();
+	cri.setKeyword("새로");
+	cri.setType("TC");
 	
 	List<NoticeBoardVO> list = noticeMapper.getListWithPaging(cri);
 	
 	list.forEach(noticeBoard -> log.info(noticeBoard));
-}
 	
-
+}
 	
 	
 	
