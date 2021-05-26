@@ -1,13 +1,17 @@
 package org.used.controller;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.tika.Tika;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,11 +35,26 @@ public class ModifyController {
 
 	private UserMainService user_service;
 	private ModifyService modify_service;
+	private boolean checkImageType(File file){
+		try {
+			String contentType = Files.probeContentType(file.toPath());
+			return contentType.startsWith("image");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	@GetMapping("/profileUpload")
+	public void profileupload(){
+		
+	}
 	
 	@PostMapping("/profileUpload")
 	public void uploadFormPost(MultipartFile[] profile_picture, Model model) {
 		String uploadFolder = "C:\\Upload";
-
+		
 		for (MultipartFile multipartFile : profile_picture) {
 			File profile = new File(uploadFolder, multipartFile.getOriginalFilename());
 			try {
@@ -47,19 +66,26 @@ public class ModifyController {
 		}
 	}
 	
-	@PostMapping("/profileUploadAjax")
-	public void profileUploadAjax(MultipartFile[] profile_picture, Model model){
+	@PostMapping("/uploadAjaxAction")
+	public void uploadAjaxPost(MultipartFile[] uploadFile) {
+		log.info("update ajax post...........");
+
 		String uploadFolder = "C:\\Upload";
-		System.out.println("dddd");
-		for(MultipartFile multipartFile : profile_picture){
+
+		for (MultipartFile multipartFile : uploadFile) {
+			log.info("Upload File Name:" + multipartFile.getOriginalFilename());
+			log.info("Upload File Size:" + multipartFile.getSize());
 			String uploadFileName = multipartFile.getOriginalFilename();
 			
-			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+			UUID uuid = UUID.randomUUID();
+			log.info("only file name:" + uploadFileName);
 			
-			File profile = new File(uploadFolder, uploadFileName);
+			uploadFileName = uuid.toString()+"_"+uploadFileName;
 			
+			File saveFile = new File(uploadFolder, uploadFileName);
+
 			try {
-				multipartFile.transferTo(profile);
+				multipartFile.transferTo(saveFile);
 			} catch (Exception e) {
 				log.error(e.getMessage());
 			}

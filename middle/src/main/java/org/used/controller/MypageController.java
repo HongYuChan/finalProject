@@ -29,4 +29,6 @@ public class MypageController {
 		model.addAttribute("member", service.member(user_id));
 		model.addAttribute("member_img", service.member_img(user_id));
 	}
+	
+	
 }

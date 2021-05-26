@@ -9,56 +9,64 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-		crossorigin="anonymous"></script>
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	var formObj = $("form");
-	
-	$('button').on("click", function(e) {
-		e.preventDefault();
+	$(document).ready(function() {
+		var formObj = $("form");
+		var regex = new RegExp("(.*?)\.(exe|sh|zip|txt|alz)$");
+		var maxSize = 1024*1024*10;
 		
-		$('#upload').on("click", function(){
-			var formData = new FormData();
-			var inputFile = $("input[name='profile_picture']");
-			var files = inputFile[0].files;
+		$('#modifybtn').on("click", function(e) {
+			e.preventDefault();
+			formObj.submit();
 			
-			formData = append("profile_picture",files);
-		)};
-		
-		$.ajax({
-			url:'/mypage/profileUploadAjax',
-			processData : false,
-			contentType : false,
-			data : formData,
-			type : 'POST',
-			success: function (result) {
-				alert("Uploaded");
-			}; //end success
-		}); //end ajax
-		
-		var operation = $(this).data("oper");
-		
-		if(operation === 'remove'){
+			/* if(operation === 'remove'){
+				formObj.attr("action", "/mypage/remove");
+			}else if (operation === 'mainpage') {
+				formObj.attr("action", "/mypage/main").attr("method", "get");
+			} */
+		});//button click end 
+		$('#removebtn').on("click", function(e) {
 			formObj.attr("action", "/mypage/remove");
-		}else if (operation === 'mainpage') {
+		});
+		$('#mainpagebtn').on("click", function (e) {
 			formObj.attr("action", "/mypage/main").attr("method", "get");
+		});
+		
+		function checkExtension(fileName, fileSize) {
+			if(fileSize >= maxSize){
+				alert("파일 사이즈 초과")
+				return false;
+			}
+			
+			if(regex.test(fileName)){
+				alert("이미지 파일을 업로드해주세요")
+				return false;
+			}
+			return true;
 		}
-		$('.pw').focusout(function() {
-			var newpw = $("#password").val();
-			var pwcheck =$("#pwcheck").val();
-			if(newpw != null || pwcheck !=null ){
-				if(newpw == pwcheck){
-					formObj.submit();
-				}else{
-					console.log('12222')
-				};
-			}else{
-				console.log('1111')
-			};
-		});	//function end
-	});//button click end
-});
+		
+		$("#uploadBtn").on("click", function(e) {
+			var formData = new FormData();
+			var inputFile = $("input[name='uploadFile']");
+			var files = inputFile[0].files;
+			console.log(files);
+			for(var i=0; i<files.length; i++){
+				formData.append("uploadFile",files[i]);
+			}
+			$.ajax({
+				url:'/mypage/uploadAjaxAction',
+				processData : false,
+				contentType: false,
+				data: formData,
+				type: 'POST',
+				success: function(result) {
+					alert("Uploaded");
+				}
+			}); //ajax
+		});
+	});
 </script>
 
 </head>
@@ -72,15 +80,11 @@ $(document).ready(function() {
 		</ul>
 	</div>
 
-	<!-- <form action="/mypage/profileUpload" method="post" enctype="multipart/form-data">
-		<input type="file" name="profile_picture">
-		<input type="submit" name="profileUpload" value="사진 추가"> 
-	</form> -->
-	<div class='uploadDiv'>
-		<input type="file" name="profile_picture">
-		<button id="upload">사진 추가</button>
+	<div class="uploadDiv">
+		<input type="file" name="uploadFile" >
 	</div>
-
+	<button id="uploadBtn">사진 추가</button>
+	
 	<form role="form" action="/mypage/modify" method="post">
 		<div class="form-group">
 			<input type="hidden" name="user_id"
@@ -103,9 +107,12 @@ $(document).ready(function() {
 			<label>이메일</label> <input type="email" name="email"
 				value='<c:out value="${member.email}"></c:out>'>
 		</div>
-		<button type="submit" data-oper="modify" class="modifybtn">수정하기</button>
-		<button type="submit" data-oper="remove" class="removebtn">회원탈퇴</button>
-		<button type="submit" data-oper="mainpage" class="mainpagebtn">돌아가기</button>
+		<button type="submit" data-oper="modify" class="modifybtn"
+			id="modifybtn">수정하기</button>
+		<button type="submit" data-oper="remove" class="removebtn"
+			id="removebtn">회원탈퇴</button>
+		<button type="submit" data-oper="mainpage" class="mainpagebtn"
+			id="mainpagebtn">돌아가기</button>
 	</form>
 </body>
 </html>
