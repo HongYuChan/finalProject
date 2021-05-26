@@ -1,6 +1,8 @@
 package org.used.controller;
 
 
+import java.io.Console;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.used.domain.MemberVO;
-import org.used.service.MemberJoinService;
+import org.used.service.MemberService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -23,7 +25,7 @@ import lombok.extern.log4j.Log4j;
 public class CommonController {
 
 	@Setter(onMethod_ = @Autowired)
-	MemberJoinService memberJoinService;
+	MemberService service;
 
 	@GetMapping("/accessError")
 	public void accessDenied(Authentication auth, Model model) {
@@ -53,41 +55,52 @@ public class CommonController {
 	public void joinInput() {
 		log.info("Join page!!");
 	}
-
+	
+	@GetMapping("/userSearch")
+	public void userIdSearch (){
+		log.info("userIdSearch in");
+	}
+	
+// ///////////////기능 컨트롤러////////////////////
+	
+	
 	// 회원가입 버튼 클릭시
-	@PostMapping(value = "/memberCreate", produces = "application/json;charset=UTF-8")
+	@PostMapping(value = "/memberCreate")
 	public ModelAndView memberJoinPro(MemberVO vo) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
-
-		memberJoinService.passwordCheck(vo);
-		memberJoinService.memberJoin(vo);
+		log.info(vo);
+		service.passwordCheck(vo);
+		service.memberJoin(vo);
 		System.out.println("1");
 
-		mav.setViewName("/customLogin");
+		mav.setViewName("account/customLogin");
 		System.out.println("2");
 
 		return mav;
 	}// end memberJoinPro()
 
 	// 중복확인 버튼 클릭시
-	@ResponseBody
 	@PostMapping(value = "/idCheck", produces = "application/json;charset=UTF-8")
+	@ResponseBody
 	public int idCheck(@RequestBody MemberVO vo) throws Exception {
 
-		int result = memberJoinService.idCheck(vo);
+		int result = service.idCheck(vo);
 		System.out.println(result);
 		return result;
-		// return new ResponseEntity<Integer>(result, HttpStatus.OK);
 	}
 	
-	// 로그인시 아이디 패스워드 일치하는지
+	//아이디 찾기 버튼 클릭시
+	@PostMapping(value ="/userSearch", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	@PostMapping(value="/loginIdPasswordCheck", produces="application/json;charset=UTF-8")
-	public int loginIdPasswordCheck(@RequestBody MemberVO vo) throws Exception{
+	public String userIdSearch(@RequestBody MemberVO vo)throws Exception{
 		
-		int result = memberJoinService.loginIdPasswordCheck(vo);
+		String result = service.userIdSearch(vo);
 		System.out.println(result);
 		return result;
 	}
+	
+	
+	
+	
 }

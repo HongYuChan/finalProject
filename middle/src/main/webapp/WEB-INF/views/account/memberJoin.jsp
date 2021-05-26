@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- java script -->
 <script src="/resources/js/Join.js"></script>
 
 <!-- 부트스트랩 -->
@@ -20,16 +21,11 @@
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 <!-- daum 도로명주소 찾기 api -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<style type="text/css">
-td {
-	border: 1px solid #000000;
-	border-collapse: collapse;
-}
-</style>
-
 </head>
 <body>
-	<article class="container">
+	<article class="container" style="margin: 0 auto;
+    width:80%;">
+	<br>
 		<div class="page-header">
 			<div class="col-md-6 col-md-offset-3">
 				<h3>회원가입</h3>
@@ -42,7 +38,8 @@ td {
 					<label for="id">아이디</label> <input type="text" class="form-control"
 						id="id" name="id" placeholder="ID" />
 					<div class="check_font" id="id_check"></div>
-					<button class="idCheck" type="button" id="idCheck" onclick="fn_idCheck()" value="N">중복확인</button>
+					
+					<button class="btn btn-secondary" type="button" id="idCheck" onclick="fn_idCheck()" value="N">중복확인</button>
 				</div>
 				<div class="form-group">
 					<label for="pw">비밀번호</label> <input type="password"
@@ -82,7 +79,7 @@ td {
 					<input class="form-control" style="width: 40%; display: inline;"
 						placeholder="우편번호" name="oaddress" id="oaddress" type="text"
 						readonly="readonly" />
-					<button type="button" class="btn btn-default"
+					<button type="button" class="btn btn-secondary"
 						onclick="execPostCode();">
 						<i class="fa fa-search"></i> 우편번호 찾기
 					</button>

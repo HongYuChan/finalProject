@@ -10,7 +10,6 @@ www.w3.org/TR/html4/loose.dtd">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/resources/js/LoginIdPasswordCheck.js"></script>
 </head>
 <body>
 

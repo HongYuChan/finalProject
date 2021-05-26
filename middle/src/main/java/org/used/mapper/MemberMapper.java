@@ -6,5 +6,5 @@ public interface MemberMapper {
 	public MemberVO read(String id);
 	public void create(MemberVO vo);
 	public int idCheck(MemberVO vo);
-	public int loginIdPasswordCheck(MemberVO vo);
+	public String userIdSearch(MemberVO vo);
 }
