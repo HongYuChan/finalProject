@@ -29,36 +29,36 @@
 		<input type='hidden' name='keyword' value='<c:out value="${cri.keyword }"/>'>
       
  
-<div class="form-group">
-  <label>notice_id</label> 
-  <input class="form-control" name='notice_id' 
-     value='<c:out value="${noticeBoard.notice_id }"/>' readonly="readonly">
-</div>
-
-<div class="form-group">
-  <label>notice_Title</label> 
-  <input class="form-control" name='notice_title' 
-    value='<c:out value="${noticeBoard.notice_title }"/>' >
-</div>
-
-<div class="form-group">
-  <label>notice_Text area</label>
-  <textarea class="form-control" rows="3" name='notice_contents' ><c:out value="${noticeBoard.notice_contents}"/></textarea>
-</div>
-
-<div class="form-group">
-  <label>notice_Writer</label> 
-  <input class="form-control" name='notice_writer'
-    value='<c:out value="${noticeBoard.notice_writer}"/>' readonly="readonly">            
-</div>
-
-
-          
-
-  <button type="submit" data-oper='modify' class="btn btn-default">Modify</button>
-  <button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
-  <button type="submit" data-oper='list' class="btn btn-info">List</button>
-</form>
+			<div class="form-group">
+			  <label>notice_id</label> 
+			  <input class="form-control" name='notice_id' 
+			     value='<c:out value="${noticeBoard.notice_id }"/>' readonly="readonly">
+			</div>
+			
+			<div class="form-group">
+			  <label>notice_Title</label> 
+			  <input class="form-control" name='notice_title' 
+			    value='<c:out value="${noticeBoard.notice_title }"/>' >
+			</div>
+			
+			<div class="form-group">
+			  <label>notice_Text area</label>
+			  <textarea class="form-control" rows="3" name='notice_contents' ><c:out value="${noticeBoard.notice_contents}"/></textarea>
+			</div>
+			
+			<div class="form-group">
+			  <label>notice_Writer</label> 
+			  <input class="form-control" name='notice_writer'
+			    value='<c:out value="${noticeBoard.notice_writer}"/>' readonly="readonly">            
+			</div>
+			
+			
+			          
+			
+			  <button type="submit" data-oper='modify' class="btn btn-default">Modify</button>
+			  <button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
+			  <button type="submit" data-oper='list' class="btn btn-info">List</button>
+		</form>
 
 
       </div>
