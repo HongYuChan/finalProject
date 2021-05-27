@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Board Modify</h1>
+		<h1 class="page-header">게시글 수정</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -17,7 +17,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 
-			<div class="panel-heading">Board Modify</div>
+			<!-- <div class="panel-heading">Board Modify</div> -->
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 
@@ -33,46 +33,46 @@
 
 
 					<div class="form-group">
-						<label>product_id</label> <input class="form-control"
+						<label>product_id</label> <input type="hidden" class="form-control"
 							name='product_id' value='<c:out value="${product.product_id }"/>'
 							readonly="readonly">
 					</div>
 
 					<div class="form-group">
-						<label>Title</label> <input class="form-control" name='title'
+						<label>제목</label> <input class="form-control" name='title'
 							value='<c:out value="${product.title }"/>'>
 					</div>
 
 					<div class="form-group">
-						<label>Product_name</label> <input class="form-control"
+						<label>상품명</label> <input class="form-control"
 							name='product_name'
 							value='<c:out value="${product.product_name }"/>'>
 					</div>
 
 					<div class="form-group">
-						<label>Price</label> <input class="form-control" name='price'
+						<label>가격</label> <input class="form-control" name='price'
 							value='<c:out value="${product.price }"/>'>
 					</div>
 
 					<div class="form-group">
-						<label>Text area</label>
+						<label>상품 정보</label>
 						<textarea class="form-control" rows="3" name='product_info'><c:out
 								value="${product.product_info}" /></textarea>
 					</div>
 
 					<div class="form-group">
-						<label>Writer</label> <input class="form-control" name='user_id'
+						<label>Writer</label> <input type="hidden" class="form-control" name='user_id'
 							value='<c:out value="${product.user_id}"/>' readonly="readonly">
 					</div>
 
 					<div class="form-group">
-						<label>Category</label> <input class="form-control"
+						<label>카테고리</label> <input class="form-control"
 							name='category_id'
 							value='<c:out value="${product.category_id}"/>'>
 					</div>
 
 					<div class="form-group uploadDiv">
-						<label>Photo</label> <input class="form-control" type='file'
+						<label>이미지</label> <input class="form-control" type='file'
 							name='image' value='resources\upload\<fmt:formatDate pattern="yyyy\MM\dd"
 											value="${product.create_date}" />\<c:out value="${product.image }"/>' multiple>
 					</div>

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.used.domain.AttachFileDTO;
+import org.used.domain.Criteria;
 import org.used.domain.ProductVO;
 import org.used.service.ProductService;
 
@@ -39,28 +40,16 @@ public class ProductController {
 	private ProductService service;
 	
 	@GetMapping("/main")
-	public void main(Model model){
+	public void main(Criteria cri, Model model){
 		
 		log.info("main");
-		model.addAttribute("list", service.getList());		
-	}
-	
-	@GetMapping("/product")
-	public void product(){
-		log.info("product...........");
-	}
-	
-	@GetMapping("/list")
-	public void list(Model model){
-		
-		log.info("list");
-		model.addAttribute("list", service.getList());		
+		model.addAttribute("list", service.getList(cri));
 	}
 	
 	@GetMapping("/register")
 	public void register(){
 		
-	}	
+	}
 	
 	@PostMapping("/register")
 	public String register(ProductVO product, RedirectAttributes rttr){

@@ -444,6 +444,242 @@ img[alt="판매자 이미지"]
     border-bottom: 2px solid darkred;
 }
 
+
+/* login page */
+.login-btn
+{
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+
+
+
+.login-input
+{
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    height: 40px;
+}
+
+
+.modal-body__wrap
+{
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 70px;
+}
+
+
+.login-modal__btn
+{
+    margin-top: 30px;
+}
+
+
+.fake-div
+{
+    width: 11px;
+    height: 21px;
+    margin: 0 5px;
+}
+
+
+#login-btn__main
+{
+    background-color: black;
+    color: white;
+}
+
+
+#login-btn__kakao
+{
+    background-color: var(--kakao-bgcolor);
+}
+
+
+#login-btn__fb
+{
+    background-color: var(--fb-bgcolor);
+    color: white;
+}
+
+
+.kakao-login__img
+{
+    background: url(../assets/img/kakao_logo.png);
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+}
+
+
+.fb-login__img
+{
+    background: url(../assets/img/fb_logo.png);
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+}
+
+
+.modal-footer__wrap
+{
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.login-footer__signup
+{
+    text-align: center;
+    color: darkgray;
+}
+
+
+.login-signup,
+.login-forgot
+{
+    font-size: 12px;
+}
+
+
+/*  회원가입 페이지 */
+
+.signup-main__wrap
+{
+    height: 100vh;
+}
+
+
+.signup-body__wrap
+{
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    padding: 60px 0;
+}
+
+
+.signup-title
+{
+    padding-bottom: 30px;
+    border-bottom: 1px solid darkgray;
+}
+
+
+.signup-content__wrap
+{
+    background-color: white;
+    width: 570px;
+    padding: 40px 60px;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;
+}
+
+
+.signup-input__wrap
+{
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+
+.signup-input
+{
+    width: 100%;
+    margin: 15px 0;
+    border: 1px gray solid;
+    border-radius: 2px;
+}
+
+
+.signup-input > button
+{
+    line-height: 40px;
+    font-size: 13px;
+}
+
+
+.su-input
+{
+    width: 100%;
+}
+
+
+.su-check
+{
+    width: 80%;
+}
+
+
+.input-id__check,
+.input-find__address
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.su-input,
+.su-check
+{
+    height: 40px;
+    border-style: none;
+}
+
+
+.signup-submit__btn
+{
+    text-align: center;
+    background-color: salmon;
+    border-style: none;
+    height: 60px;
+    margin-top: 40px;
+}
+
+
+.signup-submit__btn > button
+{
+    line-height: 58px;
+    width: 100%;
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+.text-pw
+{
+    border-style: none;
+    background-color: salmon;
+    display: none;
+}
+
+
+.text-pw__check
+{
+    border-style: none;
+    background-color: salmon;
+    display: none;
+}
+
+
+.text-pn
+{
+    border-style: none;
+    background-color: salmon;
+    display: none;
+}
+
 .pagination{
     position: relative;
     bottom: 60px;

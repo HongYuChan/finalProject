@@ -7,7 +7,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">Board Register</h1>
+    <h1 class="page-header">판매글 등록</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -17,26 +17,26 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">Board Register</div>
+      <!-- <div class="panel-heading">Board Register</div> -->
       <!-- /.panel-heading -->
       <div class="panel-body">
 
         <form role="form" action="/register" method="post">
         
         <div class="form-group">
-            <label>Product Name</label> <input class="form-control" name='product_name'>
+            <label>상품명</label> <input class="form-control" name='product_name'>
           </div>
         
         <div class="form-group">
-            <label>Category</label> <input class="form-control" name='category_id'>
+            <label>카테고리</label> <input class="form-control" name='category_id'>
           </div>
         
           <div class="form-group">
-            <label>Title</label> <input class="form-control" name='title'>
+            <label>제목</label> <input class="form-control" name='title'>
           </div>
 
           <div class="form-group">
-            <label>Text area</label>
+            <label>상품정보</label>
             <textarea class="form-control" rows="3" name='product_info'></textarea>
           </div>
 
@@ -45,15 +45,15 @@
           </div>
           
           <div class="form-group">
-            <label>Price</label> <input class="form-control" name='price'>
+            <label>가격</label> <input class="form-control" name='price'>
           </div>
           
           <div class="form-group uploadDiv">
-            <label>Photo</label> <input class="form-control" type='file' name='image' multiple>
+            <label>이미지</label> <input class="form-control" type='file' name='image' multiple>
           </div>
           
-          <button type="submit" id='uploadBtn' class="btn btn-default">Submit Button</button>
-          <button type="reset" class="btn btn-default">Reset Button</button>
+          <button type="submit" id='uploadBtn' class="btn btn-default">등록</button>
+          <button type="reset" class="btn btn-default">Reset</button>
         </form>
 
       </div>

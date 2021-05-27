@@ -3,11 +3,12 @@ package org.used.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.used.domain.Criteria;
 import org.used.domain.ProductVO;
 
 public interface ProductMapper {
 
-	public List<ProductVO> getList();
+	public List<ProductVO> getList(Criteria cri);
 	
 	public void insert(ProductVO product);
 	

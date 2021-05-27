@@ -5,9 +5,25 @@
 <mapper namespace="org.used.mapper.ProductMapper">
 
 	<select id="getList" resultType="org.used.domain.ProductVO">
-		<![CDATA[
+<!-- 		<![CDATA[
 			select * from product where product_id > 0 order by product_id desc
-		]]>
+		]]> -->
+		select * from product
+		<where>
+			<choose>
+			<when test="keyword != null">
+			title like '%'||#{keyword}||'%' or product_name like '%'||#{keyword}||'%' or product_info like '%'||#{keyword}||'%'
+				<![CDATA[
+					and product_id > 0 order by product_id desc
+				]]>
+			</when>
+			<otherwise>
+				<![CDATA[
+					product_id > 0 order by product_id desc
+				]]>
+			</otherwise>
+			</choose>
+		</where>
 	</select>
 
 	<insert id="insert">
@@ -66,7 +82,23 @@
 	</insert>
 	
 	<select id="read" resultType="org.used.domain.ProductVO">
-		select * from product where product_id = #{product_id}
+		Select 
+		p.PRODUCT_ID,
+		p.USER_ID,
+		p.CATEGORY_ID,
+		p.PRODUCT_NAME,
+		p.TITLE,
+		p.PRODUCT_INFO,
+		p.PRICE,
+		p.CREATE_DATE,
+		p.STATUS,
+		p.BUYER_ID,
+		p.SALE_DATE,
+		p.IMAGE,
+		m.nickname
+		From PRODUCT p INNER JOIN MEMBER m
+		ON p.USER_ID = m.USER_ID
+		WHERE product_id = #{product_id}
 	</select>
 	
 	<delete id="delete">

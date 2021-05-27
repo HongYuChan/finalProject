@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>다있소</title>
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/plugin/slick/slick.css" type="text/css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/plugin/slick/slick-theme.css" type="text/css">
@@ -21,7 +21,7 @@
     <!-- 헤더 검색부분 -->
     <header class="header-main">
         <div class="header-main__content content-center">
-            <a href="main.html">
+            <a href="/main">
                 <h1>Shop</h1>
             </a>
             <div class="header-input">
@@ -69,10 +69,7 @@
                     </div>
                     <div class="product-user__text">
                         <div>
-                            userId
-                        </div>
-                        <div>
-                            userAddress
+                            <c:out value="${product.nickname }"/>
                         </div>
                     </div>
                 </div>

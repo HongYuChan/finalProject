@@ -34,3 +34,80 @@ $(function() {
         }
     );
 });
+
+
+$(function() {
+    $('.pw-check').focusout(function() {
+        if($('#signup-pw').val() != $('#signup-pw__check').val()) {
+            $('.text-pw').css('display', 'block');
+            $('#signup-pw__check').val('');
+
+            return false;
+        }else {
+            $('.text-pw').css('display', 'none');
+        }
+    });
+});
+
+
+$(function() {
+    $('#signup-pw').focusout(function() {
+        if(!/^[a-zA-Z0-9]{8,20}/.test($('#signup-pw').val())) {
+            $('.text-pw__check').css('display', 'block');
+            $('#signup-pw').val('');
+
+            return false;
+        }else {
+            $('.text-pw__check').css('display', 'none');
+        }
+    });
+});
+
+
+
+$(function() {
+    $('#signup-phonenum').focusout(function() {
+        if(!/^\d{3}-\d{3,4}-\d{4}$/.test($('#signup-phonenum').val())) {
+            $('.text-pn').css('display', 'block');
+            $('#signup-phonenum').val('');
+
+            return false;
+        }else {
+            $('.text-pn').css('display', none);
+        }
+    });
+});
+
+
+
+
+function addressApi() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            let fullAddr = '';
+            let extraAddr = '';
+
+            if(data.userSelectedType === 'R') {
+                fullAddr = data.roadAddress;
+            }else {
+                fullAddr = data.jibunAddress;
+            }
+
+            if(data.userSelectedType === 'R') {
+                if(data.bname !== '') {
+                    extraAddr += data.bname;
+                }
+
+                if(data.buildingName !== '') {
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+
+                fullAddr += (extraAddr !== '' ? ' (' + extraAddr +')' : '');
+            }
+            document.getElementById('signup-postcode').value = data.zonecode;
+            document.getElementById('signup-address').value = fullAddr;
+        }
+    }).open();
+}
+
+
