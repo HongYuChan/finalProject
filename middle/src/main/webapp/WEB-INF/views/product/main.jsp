@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@include file="../includes/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -7,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/style.css"
@@ -22,17 +22,13 @@
 	integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
 	crossorigin="anonymous">
 
-<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"
-	type="text/javascript"></script>
-<script
-	src="<%=request.getContextPath()%>/resources/plugin/slick/slick.js"
-	type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/resources/js/slider.js"
-	type="text/javascript"></script>
+
+
 </head>
 <body>
+
 	<!-- 헤더 검색부분 -->
-	<header class="header-main">
+	<!-- <header class="header-main">
 	<div class="header-main__content content-center">
 		<a href="main.html">
 			<h1>Shop</h1>
@@ -52,7 +48,7 @@
 		</div>
 	</div>
 	</header>
-
+ -->
 	<main>
 	<div class="main-wrap">
 		<div class="main-slide">
@@ -119,52 +115,6 @@
 	</div>
 	</main>
 
-	<footer>
-	<div class="main-footer">
-		<!-- <div class="main-footer__list">
-                <a href="#">공지사항</a>
-                <a href="#">신고</a>
-                <a href="#">자주묻는질문</a>
-                <a href="#">1:1문의하기</a>
-            </div> -->
-		<div class="main-footer__info">
-			<div class="main-footer__intro">
-				<div class="footer-intro__title">
-					<h1>Shop</h1>
-				</div>
-
-				<div class="footer-intro__content notice">
-					<a href="notice.html"> <span>공지사항</span>
-					</a>
-				</div>
-
-				<div class="footer-intro__content report">
-					<a href="#"> <span>신고</span>
-					</a>
-				</div>
-
-				<div class="footer-intro__content question">
-					<a href="#"> <span>자주묻는질문</span>
-					</a>
-				</div>
-
-			</div>
-
-			<div class="main-footer__detail">
-				<div class="footer-detail__text">
-					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-						Laborum officiis ullam deleniti voluptas iure recusandae illum
-						labore, voluptatibus atque dolores velit tenetur molestiae ad
-						blanditiis necessitatibus maiores enim illo animi!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Tempore perferendis aliquam, quod pariatur commodi vitae. Beatae
-						doloribus placeat, quidem similique deserunt asperiores
-						dignissimos cumque, consequatur, dolores odit illum quia odio.</p>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	</footer>
+	<%@include file="../includes/footer.jsp"%>
 </body>
 </html>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,17 +12,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<!-- csrf 토큰 -->
+<meta name="_csrf" th:content="${_csrf.token}">
+<meta name="_csrf_header" th:content="${_csrf.headerName}">
 
 <!-- custom -->
-    <link rel="stylesheet" href="/resources/plugin/slick/slick.css" type="text/css">
-    <link rel="stylesheet" href="/resources/plugin/slick/slick-theme.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
-    <script src="/resources/js/jquery.min.js" type="text/javascript"></script>
-    <script src="/resources/plugin/slick/slick.js" type="text/javascript"></script>
-    <script src="/resources/js/slider.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/resources/plugin/slick/slick.css"
+	type="text/css">
+<link rel="stylesheet" href="/resources/plugin/slick/slick-theme.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+	integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/resources/css/style.css" type="text/css">
+<script src="/resources/js/jquery.min.js" type="text/javascript"></script>
+<script src="/resources/plugin/slick/slick.js" type="text/javascript"></script>
+<script src="/resources/js/slider.js" type="text/javascript"></script>
 
 <!-- Bootstrap Core CSS -->
 <link href="/resources/vendor/bootstrap/css/bootstrap.min.css"
@@ -53,6 +61,18 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- main.jsp 추가 항목 -->
+<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/plugin/slick/slick.js"
+	type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/slider.js"
+	type="text/javascript"></script>
+
+
 </head>
 
 <body>
@@ -61,7 +81,7 @@
 
 		<header class="header-main">
 			<div class="header-main__content content-center">
-				<a href="main.html">
+				<a href="/product/main">
 					<h1>Shop</h1>
 				</a>
 				<div class="header-input">
@@ -72,14 +92,20 @@
 				</div>
 
 				<div class="header-btn">
-					<a href="#" class="header-btn__text"> Sale </a> <a href="#"
-						class="header-btn__text"> MyShop </a> <a href="#"
-						class="header-btn__text"> Chat </a> <a href="#"
-						class="header-btn__text"> Login </a>
+					<a href="/product/register" class="header-btn__text"> 상품 판매 </a> 
+					<sec:authorize access="isAuthenticated()" >
+					<a href="#" class="header-btn__text"> 내 정보 </a>
+					</sec:authorize> 
+					<a href="#" class="header-btn__text"> 채팅 </a> 
+					<sec:authorize access="isAnonymous()" >
+					<a href="/account/customLogin" class="header-btn__text">로그인</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()" >
+					<a href="/account/customLogout" class="header-btn__text">로그아웃</a>
+					</sec:authorize>
 				</div>
 			</div>
+			<!-- 로그인 로그아웃 최고! -->
+					
 		</header>
 		<div id="page-wrapper">
-
-			<script
-				src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

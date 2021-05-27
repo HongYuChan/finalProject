@@ -2,12 +2,13 @@
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@include file="./includes/header.jsp"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@include file="../includes/header.jsp"%>
 
 
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">Board Register</h1>
+    <h1 class="page-header">SALE</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -21,39 +22,40 @@
       <!-- /.panel-heading -->
       <div class="panel-body">
 
-        <form role="form" action="/register" method="post">
+        <form role="form" action="/product/register" method="post">
         
         <div class="form-group">
-            <label>Product Name</label> <input class="form-control" name='product_name'>
+            <label>상품이름</label> <input class="form-control" name='product_name'>
           </div>
         
         <div class="form-group">
-            <label>Category</label> <input class="form-control" name='category_id'>
+            <label>품목</label> <input class="form-control" name='category_id'>
           </div>
         
           <div class="form-group">
-            <label>Title</label> <input class="form-control" name='title'>
+            <label>글제목</label> <input class="form-control" name='title'>
           </div>
 
           <div class="form-group">
-            <label>Text area</label>
+            <label>내용</label>
             <textarea class="form-control" rows="3" name='product_info'></textarea>
           </div>
 
           <div class="form-group">
-            <label>User</label> <input class="form-control" name='user_id'>
+            <label>작성자</label> <input type="hidden" class="form-control" name='user_id' value="90">
           </div>
           
           <div class="form-group">
-            <label>Price</label> <input class="form-control" name='price'>
+            <label>가격</label> <input class="form-control" name='price'>
           </div>
           
           <div class="form-group uploadDiv">
-            <label>Photo</label> <input class="form-control" type='file' name='image' multiple>
+            <label>사진</label> <input class="form-control" type='file' name='image' multiple>
           </div>
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+          <button type="submit" id='uploadBtn' class="btn btn-default">완료</button>
+          <button type="reset" class="btn btn-default">취소</button>
           
-          <button type="submit" id='uploadBtn' class="btn btn-default">Submit Button</button>
-          <button type="reset" class="btn btn-default">Reset Button</button>
         </form>
 
       </div>
@@ -65,7 +67,7 @@
   <!-- end panel -->
 </div>
 <!-- /.row -->
-<%@include file="./includes/footer.jsp"%>
+<%@include file="../includes/footer.jsp"%>
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -73,8 +75,13 @@
 
 	<script type="text/javascript">
 	
-		$(document).ready(function() {
-			
+	var
+	token = $("meta[name='_csrf']").attr("th:content");
+	var
+	header = $("meta[name='_csrf_header']").attr("th:content");
+
+	
+		$(document).ready(function() {	
 			var regex = new RegExp("(.*?)\.(jpg|png|PNG)$");
 			
 			var maxSize = 5242880;
@@ -100,7 +107,7 @@
 				var inputFile = $("input[name='image']");
 
 				var files = inputFile[0].files;
-
+				
 				console.log(files);
 
 				//add filedate to formdata
@@ -120,6 +127,9 @@
 					contentType : false,
 					data : formData,
 					type : 'POST',
+					beforeSend : function(xhr) {
+						xhr.setRequestHeader(header, token);
+					},
 					success : function(result) {
 						alert("Uploaded");
 					}
