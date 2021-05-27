@@ -8,7 +8,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">SALE</h1>
+    <h1 class="page-header">판매글 등록</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -18,31 +18,31 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">Board Register</div>
+      <!-- <div class="panel-heading">Board Register</div> -->
       <!-- /.panel-heading -->
       <div class="panel-body">
 
         <form role="form" action="/product/register" method="post">
         
         <div class="form-group">
-            <label>상품이름</label> <input class="form-control" name='product_name'>
+            <label>상품명</label> <input class="form-control" name='product_name'>
           </div>
         
         <div class="form-group">
-            <label>품목</label> <input class="form-control" name='category_id'>
+            <label>카테고리</label> <input class="form-control" name='category_id'>
           </div>
         
           <div class="form-group">
-            <label>글제목</label> <input class="form-control" name='title'>
+            <label>제목</label> <input class="form-control" name='title'>
           </div>
 
           <div class="form-group">
-            <label>내용</label>
+            <label>상품정보</label>
             <textarea class="form-control" rows="3" name='product_info'></textarea>
           </div>
 
           <div class="form-group">
-            <label>작성자</label> <input type="hidden" class="form-control" name='user_id' value="90">
+            <label>작성자</label> <input  class="form-control" name='user_id' >
           </div>
           
           <div class="form-group">
@@ -50,12 +50,14 @@
           </div>
           
           <div class="form-group uploadDiv">
-            <label>사진</label> <input class="form-control" type='file' name='image' multiple>
+            <label>이미지</label> <input class="form-control" type='file' name='image' multiple>
           </div>
           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
           <button type="submit" id='uploadBtn' class="btn btn-default">완료</button>
           <button type="reset" class="btn btn-default">취소</button>
           
+          <button type="submit" id='uploadBtn' class="btn btn-default">등록</button>
+          <button type="reset" class="btn btn-default">Reset</button>
         </form>
 
       </div>

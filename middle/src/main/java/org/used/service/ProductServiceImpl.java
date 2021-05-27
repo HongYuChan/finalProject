@@ -3,6 +3,7 @@ package org.used.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.used.domain.Criteria;
 import org.used.domain.ProductVO;
 import org.used.mapper.ProductMapper;
 
@@ -48,11 +49,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVO> getList() {
+	public List<ProductVO> getList(Criteria cri) {
 		
 		log.info("getList..........................................");
 		
-		return mapper.getList();
+		return mapper.getList(cri);
 	}
 
 }

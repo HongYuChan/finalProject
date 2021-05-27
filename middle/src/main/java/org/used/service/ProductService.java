@@ -2,6 +2,7 @@ package org.used.service;
 
 import java.util.List;
 
+import org.used.domain.Criteria;
 import org.used.domain.ProductVO;
 
 public interface ProductService {
@@ -14,6 +15,6 @@ public interface ProductService {
 	
 	public Boolean remove(Long product_id);
 	
-	public List<ProductVO> getList();
+	public List<ProductVO> getList(Criteria cri);
 	
 }
