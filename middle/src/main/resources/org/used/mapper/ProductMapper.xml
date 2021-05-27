@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.used.mapper.ProductMapper">
+
+	<select id="getList" resultType="org.used.domain.ProductVO">
+		<![CDATA[
+			select * from product where product_id > 0 order by product_id desc
+		]]>
+	</select>
+
+	<insert id="insert">
+		insert into product (
+		PRODUCT_ID,
+		USER_ID,
+		CATEGORY_ID,
+		PRODUCT_NAME,
+		TITLE,
+		PRODUCT_INFO,
+		PRICE,
+		CREATE_DATE,
+		IMAGE
+		)
+		values	(
+		seq_productid.nextval,
+		#{user_id},
+		#{category_id},
+		#{product_name},
+		#{title},
+		#{product_info},
+		#{price},
+		sysdate,
+		#{image}
+		)
+	</insert>
+	
+	<insert id="insertSelectKey">
+		
+		<selectKey keyProperty="product_id" order="BEFORE" resultType="long">
+			select seq_productid.nextval from dual
+		</selectKey>
+		insert into product (
+		product_id,
+		USER_ID,
+		CATEGORY_ID,
+		PRODUCT_NAME,
+		TITLE,
+		PRODUCT_INFO,
+		PRICE,
+		CREATE_DATE,
+		IMAGE
+		)
+		values (
+		#{product_id},
+		#{user_id},
+		#{category_id},
+		#{product_name},
+		#{title},
+		#{product_info},
+		#{price},
+		sysdate,
+		#{image}
+		)
+		
+	</insert>
+	
+	<select id="read" resultType="org.used.domain.ProductVO">
+		select * from product where product_id = #{product_id}
+	</select>
+	
+	<delete id="delete">
+		delete from product where product_id = #{product_id}
+	</delete>
+	
+	<update id="update">
+		update product set
+		category_id = #{category_id},
+		product_name = #{product_name},
+		title = #{title},
+		product_info = #{product_info},
+		price = #{price}
+		where product_id = #{product_id}
+	</update>
+	
+
+</mapper>
