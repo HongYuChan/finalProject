@@ -12,11 +12,20 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class AuthController {
 	
+	//////////////////////////////////////////
+	
 	@GetMapping("/all")
 	public void doAll(){
 		log.info("do all can access everybody");
 	}
 	
+	@GetMapping("/all/noticeBoard/list")
+	public void doList(){}
+	
+	@GetMapping("/admin/noticeBoard/register")
+	public void doRegister(){}
+	
+	///////////////////////////////////
 	@GetMapping("/member")
 	public void doMember(){
 		

@@ -8,8 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>아이디/패스워드 찾기</title>
 <!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
@@ -21,7 +20,7 @@
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/views/modal/userIdSearchModal.jsp"%>
+	<%@ include file="/WEB-INF/views/account/modal/userIdSearchModal.jsp"%>
 	<div class="full">
 		<div class="container">
 			<div class="area_inputs wow fadeIn">
