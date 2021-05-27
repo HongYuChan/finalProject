@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.used.controller.CommonController;
 
 import lombok.extern.log4j.Log4j;
 
 @Log4j
-public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
+public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth)
@@ -30,12 +31,11 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
 
 		log.warn("role names: " + roleNames);
 
+		/////////////////////////////////////////////////////////////////////////////////////////
 		if (roleNames.contains("ROLE_ADMIN")) {
-
-			response.sendRedirect("/auth/admin");
 			return;
 		}
-
+		/////////////////////////////////////////////////////////////////////////////////////////////////
 		if (roleNames.contains("ROLE_MEMBER")) {
 
 			response.sendRedirect("/auth/member");
@@ -46,4 +46,3 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
 	}
 
 }
-

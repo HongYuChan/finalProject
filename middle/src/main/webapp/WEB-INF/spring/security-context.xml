@@ -14,13 +14,13 @@
 
 	<security:http>
 
-		<security:intercept-url pattern="/auth/all"
+		<security:intercept-url pattern="/auth/all/**"
 			access="permitAll" />
 
-		<security:intercept-url pattern="/auth/member"
+		<security:intercept-url pattern="/auth/member/**"
 			access="hasRole('ROLE_MEMBER')" />
 
-		<security:intercept-url pattern="/auth/admin"
+		<security:intercept-url pattern="/auth/admin/**"
 			access="hasRole('ROLE_ADMIN')" />
 
 		<security:form-login login-page="/account/customLogin"
