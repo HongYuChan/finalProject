@@ -94,8 +94,11 @@
 						value='<c:out value="${pageMaker.cri.pageNum}"/>' /> <input
 						type='hidden' name='amount'
 						value='<c:out value="${pageMaker.cri.amount}"/>' />
-					<button class='btn btn-default'>Search</button>
+					<button class='btn btn-secondary'>검색</button>
 				</form>
+				<button id='regBtn' type="button" class="btn btn-success">
+					공지사항 작성
+				</button>
 			</div>
 		</div>
 
@@ -139,11 +142,10 @@
 
 
 			</ul>
-					
+
 			<button id='regBtn' type="button" class="btn btn-success">
-				공지사항 작성
-			</button>
-			
+				공지사항 작성</button>
+
 		</div>
 		<!--  end Pagination -->
 	</div>

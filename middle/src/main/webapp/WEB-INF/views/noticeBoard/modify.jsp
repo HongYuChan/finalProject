@@ -46,7 +46,7 @@
 			
 			          
 			
-			  <button type="submit" data-oper='modify' class="btn btn-success">글 수정</button>
+			  <button type="submit" data-oper='modify' class="btn btn-success">수정 완료</button>
 			  <button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
 			  <button type="submit" data-oper='list' class="btn btn-info">목록</button>
 		</form>
