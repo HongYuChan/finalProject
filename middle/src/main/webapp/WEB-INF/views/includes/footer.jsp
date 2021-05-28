@@ -53,8 +53,10 @@
 					</div>
 
 					<div class="footer-intro__content notice">
-						<a href="/noticeBoard/list"> <span>공지사항</span>
-						</a>
+
+						<button data-oper='list'>
+							<span style="color: rgb(169, 169, 169);">공지사항</span>
+						</button>
 					</div>
 
 					<div class="footer-intro__content report">
