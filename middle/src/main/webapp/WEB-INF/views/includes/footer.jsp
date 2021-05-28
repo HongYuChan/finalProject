@@ -54,7 +54,7 @@
 
 					<div class="footer-intro__content notice">
 
-						<button data-oper='list'>
+						<button data-oper='list' onclick="location.href='/noticeBoard/list'">
 							<span style="color: rgb(169, 169, 169);">공지사항</span>
 						</button>
 					</div>

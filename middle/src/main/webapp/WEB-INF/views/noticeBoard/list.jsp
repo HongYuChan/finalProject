@@ -139,10 +139,10 @@
 
 
 			</ul>
-			<sec:authorize access="hasRole('ROLE_ADMIN')">
+			<sec:authorize access="hasRole('ROLE_ADMIN')"> 
 				<button id='regBtn' type="button" class="btn btn-success">
 					공지사항 작성</button>
-			</sec:authorize>
+			</sec:authorize> 
 
 		</div>
 		<!--  end Pagination -->
@@ -186,9 +186,13 @@
 
 </body>
 
-
-
 <script type="text/javascript">
+
+var
+token = $("meta[name='_csrf']").attr("th:content");
+var
+header = $("meta[name='_csrf_header']").attr("th:content");
+
 	$(document)
 			.ready(
 					function() {

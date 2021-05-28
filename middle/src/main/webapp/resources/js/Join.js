@@ -13,11 +13,6 @@ var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 // 별명 정규식
 var nicknameJ = /^[가-힣]{2,10}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
 
-const
-token = $("meta[name='_csrf']").attr("th:content");
-const
-header = $("meta[name='_csrf_header']").attr("th:content");
-
 var address = $('#detailaddress');
 
 // 아이디 중복확인

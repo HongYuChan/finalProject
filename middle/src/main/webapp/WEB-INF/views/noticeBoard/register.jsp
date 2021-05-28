@@ -4,6 +4,9 @@ ie<%@ page language="java" contentType="text/html; charset=UTF-8"
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
+<meta name="_csrf" th:content="${_csrf.token}">
+<meta name="_csrf_header" th:content="${_csrf.headerName}">
+
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -24,6 +27,9 @@ ie<%@ page language="java" contentType="text/html; charset=UTF-8"
 					</div>
 					<button type="submit" class="btn btn-success">작성 완료</button>
 					<button type="reset" class="btn btn-warning">초기화</button>
+					
+						<input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
+						
 				</form>
 
 			</div>
