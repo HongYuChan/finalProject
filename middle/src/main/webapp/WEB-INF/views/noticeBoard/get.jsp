@@ -40,7 +40,7 @@
         <a href="/board/list">List</a></button> --%>
 
 
-				<button data-oper='modify' class="btn btn-default">수정완료</button>
+				<button data-oper='modify' class="btn btn-success">수정완료</button>
 				<button data-oper='list' class="btn btn-info">글 목록</button>
 				<%-- 
 <form id='operForm' action="/noticeBoard/modify" method="get">
