@@ -8,12 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/account/customLogout" method="post">
+	<form action="/account/logout" method="post">
 		<div class="modal-body">로그아웃 하시겠습니까?</div>
 		<div class="modal-footer">
 			<input type="hidden" name="${_csrf.parameterName }"
 				value="${_csrf.token }" />
-			<button class="btn btn-primary" type="submit" data-dismiss="modal">확인</button>
+			<button class="btn btn-primary">확인</button>
 		</div>
 	</form>
 

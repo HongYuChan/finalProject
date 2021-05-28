@@ -1,6 +1,5 @@
 package org.used.controller;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/account/*")
-public class CommonController {
+public class AccountController {
 	
 	@Setter(onMethod_ = @Autowired)
 	MemberService service;
@@ -33,7 +32,7 @@ public class CommonController {
 		model.addAttribute("msg", "Access Denied");
 	}
 
-	@GetMapping("/customLogin")
+	@GetMapping("/loginmodal")
 	public void loginInput(String error, String logout, Model model) {
 		log.info("error:" + error);
 		log.info("logout:" + logout);
@@ -46,7 +45,7 @@ public class CommonController {
 		}
 	}
 
-	@GetMapping("/customLogout")
+	@GetMapping("/logout")
 	public void logoutGET() {
 		log.info("custom logout");
 	}

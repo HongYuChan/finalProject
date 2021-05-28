@@ -14,20 +14,21 @@
 
 	<security:http>
 
-		<security:intercept-url pattern="/auth/all/**"
+		<security:intercept-url pattern="/**"
 			access="permitAll" />
 
-		<security:intercept-url pattern="/auth/member/**"
-			access="hasRole('ROLE_MEMBER')" />
+		<security:intercept-url pattern="/user/**"
+			access="hasRole('ROLE_USER')" />
 
-		<security:intercept-url pattern="/auth/admin/**"
+		<security:intercept-url pattern="/admin/**"
 			access="hasRole('ROLE_ADMIN')" />
 
-		<security:form-login login-page="/account/customLogin"
+		<security:form-login login-page="/account/loginmodal"
 			authentication-success-handler-ref="customLoginSuccess" />
 
-		<security:logout logout-url="/account/customLogout"
-			invalidate-session="true" />
+		<security:logout logout-url="/account/logout"
+			invalidate-session="true" logout-success-url="/product/main"/>
+			
 
 		<security:access-denied-handler ref="customAccessDenied" />
 

@@ -19,8 +19,6 @@ public class AuthController {
 		log.info("do all can access everybody");
 	}
 	
-	@GetMapping("/all/noticeBoard/list")
-	public void doList(){}
 	
 	@GetMapping("/admin/noticeBoard/register")
 	public void doRegister(){}

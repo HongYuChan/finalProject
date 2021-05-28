@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.used.controller.CommonController;
+import org.used.controller.AccountController;
 
 import lombok.extern.log4j.Log4j;
 
@@ -33,17 +33,17 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
 		/////////////////////////////////////////////////////////////////////////////////////////
 		if (roleNames.contains("ROLE_ADMIN")) {
-			response.sendRedirect("/auth/all/noticeBoard/list");
+			response.sendRedirect("/product/main");
 			return;
 		}
 		/////////////////////////////////////////////////////////////////////////////////////////////////
-		if (roleNames.contains("ROLE_MEMBER")) {
+		if (roleNames.contains("ROLE_USER")) {
 
-			response.sendRedirect("/auth/member");
+			response.sendRedirect("/product/main");
 			return;
 		}
 
-		response.sendRedirect("/auth/all");
+		response.sendRedirect("/product/main");
 	}
 
 }
