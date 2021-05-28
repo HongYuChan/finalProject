@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%-- <%@include file="../includes/header.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
-	
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,54 +35,59 @@
 	type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/slider.js"
 	type="text/javascript"></script>
-	
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" type="text/css">
-    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.bundle.js" type="text/javascript"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
+	type="text/css">
+<script
+	src="<%=request.getContextPath()%>/resources/js/bootstrap.bundle.js"
+	type="text/javascript"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/js/bootstrap.bundle.min.js"
+	type="text/javascript"></script>
 </head>
 <body>
-    <!-- 헤더 검색부분 -->
-    <header class="header-main">
-        <div class="header-main__content content-center">
-            <a href="main.html">
-                <h1>DAITSO</h1>
-            </a>
-            <div class="header-input">
-                <input type="text" placeholder="Search" id="header-input__v1">
-                <button>
-                    <i class="fas fa-search fa-lg"></i>
-                </button>
-            </div>
+	<!-- 헤더 검색부분 -->
+	<header class="header-main">
+	<div class="header-main__content content-center">
+		<a href="main.html">
+			<h1>DAITSO</h1>
+		</a>
+		<div class="header-input">
+			<input type="text" placeholder="Search" id="header-input__v1">
+			<button>
+				<i class="fas fa-search fa-lg"></i>
+			</button>
+		</div>
 
-            <div class="header-btn">
-                <a href="#" class="header-btn__text">
-                    상품판매
-                </a>
-                <a href="#" class="header-btn__text">
-                    마이페이지
-                </a>
-                <a href="#" class="header-btn__text">
-                    채팅
-                </a>
-               <sec:authorize access="isAnonymous()">
-				<button type="button" class="header-btn__text header-login__btn" id="header-login__modal" data-bs-target="#modal-wrap" data-bs-toggle="modal">
-                    로그인
-                </button>
-				</sec:authorize>
-				<sec:authorize access="isAuthenticated()">
-					<a href="/account/logout" class="header-btn__text">로그아웃</a>
-				</sec:authorize>
-					
-					<!-- 로그인 모달창 -->
-				<%@include file="../account/loginmodal.jsp"%> 
-               
+		<div class="header-btn">
 
-            </div>
-        </div>
-    </header>
+			<sec:authorize access="isAuthenticated()">
+				<a href="/user/product/register" class="header-btn__text"> 상품판매</a>
+			</sec:authorize>
+			
+			<a href="#" class="header-btn__text"> 마이페이지 </a> 
+			<sec:authorize access="isAnonymous()">
+				<button type="button" class="header-btn__text header-login__btn"
+					id="header-login__modal" data-bs-target="#modal-wrap"
+					data-bs-toggle="modal">로그인</button>
+			</sec:authorize>
+			<sec:authorize access="isAuthenticated()">
+				<a href="/account/logout" class="header-btn__text">로그아웃</a>
+			</sec:authorize>
 
-    <main>
+			<!-- 로그인 모달창 -->
+			<%@include file="../account/loginmodal.jsp"%>
+
+
+		</div>
+	</div>
+	</header>
+
+	<main>
 	<div class="main-wrap">
 		<div class="main-slide">
 			<!-- slide bar -->
@@ -151,49 +157,52 @@
 	</main>
 
 
-    <footer>
-        <div class="main-footer">
-            <!-- <div class="main-footer__list">
+	<footer>
+	<div class="main-footer">
+		<!-- <div class="main-footer__list">
                 <a href="#">공지사항</a>
                 <a href="#">신고</a>
                 <a href="#">자주묻는질문</a>
                 <a href="#">1:1문의하기</a>
             </div> -->
-            <div class="main-footer__info">
-                <div class="main-footer__intro">
-                    <div class="footer-intro__title">
-                        <h1>Shop</h1>
-                    </div>
+		<div class="main-footer__info">
+			<div class="main-footer__intro">
+				<div class="footer-intro__title">
+					<h1>Shop</h1>
+				</div>
 
-                    <div class="footer-intro__content notice">
-                        <a href="notice.html">
-                            <span>공지사항</span>
-                        </a>
-                    </div>
+				<div class="footer-intro__content notice">
+					<a href="/noticeBoard/list"> <span>공지사항</span>
+					</a>
+				</div>
 
-                    <div class="footer-intro__content report">
-                        <a href="#">
-                            <span>신고</span>
-                        </a>
-                    </div>
+				<div class="footer-intro__content report">
+					<a href="#"> <span>신고</span>
+					</a>
+				</div>
 
-                    <div class="footer-intro__content question">
-                        <a href="#">
-                            <span>자주묻는질문</span>
-                        </a>
-                    </div>
+				<div class="footer-intro__content question">
+					<a href="#"> <span>자주묻는질문</span>
+					</a>
+				</div>
 
-                </div>
+			</div>
 
-                <div class="main-footer__detail">
-                    <div class="footer-detail__text">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum officiis ullam deleniti voluptas iure recusandae illum labore, voluptatibus atque dolores velit tenetur molestiae ad blanditiis necessitatibus maiores enim illo animi!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore perferendis aliquam, quod pariatur commodi vitae. Beatae doloribus placeat, quidem similique deserunt asperiores dignissimos cumque, consequatur, dolores odit illum quia odio.</p>
-                    </div>
-                </div>
+			<div class="main-footer__detail">
+				<div class="footer-detail__text">
+					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+						Laborum officiis ullam deleniti voluptas iure recusandae illum
+						labore, voluptatibus atque dolores velit tenetur molestiae ad
+						blanditiis necessitatibus maiores enim illo animi!</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Tempore perferendis aliquam, quod pariatur commodi vitae. Beatae
+						doloribus placeat, quidem similique deserunt asperiores
+						dignissimos cumque, consequatur, dolores odit illum quia odio.</p>
+				</div>
+			</div>
 
-            </div>
-        </div>
-    </footer>
+		</div>
+	</div>
+	</footer>
 </body>
 </html>

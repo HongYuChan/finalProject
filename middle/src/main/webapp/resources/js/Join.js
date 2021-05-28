@@ -59,7 +59,7 @@ $(document).ready(
 
 			// 취소
 			$(".cencle").on("click", function() {
-				location.href = "/account/customLogin";
+				location.href = "/product/main";
 			});
 
 			$('form').on(

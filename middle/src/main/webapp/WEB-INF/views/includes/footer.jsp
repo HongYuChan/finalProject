@@ -49,11 +49,11 @@
 			<div class="main-footer__info">
 				<div class="main-footer__intro content-center">
 					<div class="footer-intro__title">
-						<h1>Shop</h1>
+						<h1>DAITSO</h1>
 					</div>
 
 					<div class="footer-intro__content notice">
-						<a href="notice.html"> <span>공지사항</span>
+						<a href="/noticeBoard/list"> <span>공지사항</span>
 						</a>
 					</div>
 

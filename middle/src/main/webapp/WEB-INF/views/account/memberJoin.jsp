@@ -39,8 +39,7 @@
 					<label for="id">아이디</label> <input type="text" class="form-control"
 						id="id" name="id" placeholder="ID" />
 					<div class="check_font" id="id_check"></div>
-					
-					<button class="btn btn-secondary" type="button" id="idCheck" onclick="fn_idCheck()" value="N">중복확인</button>
+					<button class="btn btn-secondary" type="button" id="idCheck" onclick="fn_idCheck()" value="N" style="margin-top: 5px;">중복확인</button>
 				</div>
 				<div class="form-group">
 					<label for="pw">비밀번호</label> <input type="password"

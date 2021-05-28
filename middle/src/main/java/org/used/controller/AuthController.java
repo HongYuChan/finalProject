@@ -6,32 +6,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.log4j.Log4j;
 
-
 @Log4j
-@RequestMapping("/auth/*")
 @Controller
 public class AuthController {
+	/*
+	 * @GetMapping("/all") public void doAll(){
+	 * log.info("do all can access everybody"); }
+	 */
+	/*
+	 * @GetMapping("/member") public void doMember(){
+	 * 
+	 * log.info("logined member"); }
+	 */
+	/*
+	 * @GetMapping("/admin") public void doAdmin() { log.info("admin only"); }
+	 */
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	//all
 	
-	//////////////////////////////////////////
 	
-	@GetMapping("/all")
-	public void doAll(){
-		log.info("do all can access everybody");
+	//user
+	@GetMapping("/user/product/register")
+	public void doPRegister(){
 	}
 	
-	
+	//admin
 	@GetMapping("/admin/noticeBoard/register")
-	public void doRegister(){}
-	
-	///////////////////////////////////
-	@GetMapping("/member")
-	public void doMember(){
-		
-		log.info("logined member");
+	public void doNRegister() {
 	}
+
 	
-	@GetMapping("/admin")
-	public void doAdmin(){
-		log.info("admin only");
-	}
 }

@@ -102,20 +102,26 @@
 					<i class="fas fa-search fa-lg"></i>
 				</button>
 			</div>
-				
-				<!-- 로그인 모달창 -->
-				<%@include file="../account/loginmodal.jsp"%> 
-				
+
+			<!-- 로그인 모달창 -->
+			<%@include file="../account/loginmodal.jsp"%>
+
 
 			<div class="header-btn">
-				<a href="#" class="header-btn__text"> 상품판매 </a> <a href="#"
-					class="header-btn__text"> 마이페이지 </a> <a href="#"
-					class="header-btn__text"> 채팅 </a>
-				<sec:authorize access="isAnonymous()">
-				<button type="button" class="header-btn__text header-login__btn" id="header-login__modal" data-bs-target="#modal-wrap" data-bs-toggle="modal">
-                    로그인
-                </button>
+			
+				<sec:authorize access="isAuthenticated()">
+					<a href="/user/product/register" class="header-btn__text"> 상품판매 </a>
 				</sec:authorize>
+				
+				<a href="#" class="header-btn__text"> 마이페이지 </a>
+				
+					
+				<sec:authorize access="isAnonymous()">
+					<button type="button" class="header-btn__text header-login__btn"
+						id="header-login__modal" data-bs-target="#modal-wrap"
+						data-bs-toggle="modal">로그인</button>
+				</sec:authorize>
+				
 				<sec:authorize access="isAuthenticated()">
 					<a href="/account/logout" class="header-btn__text">로그아웃</a>
 				</sec:authorize>
@@ -123,4 +129,3 @@
 		</div>
 
 	</header>
-	

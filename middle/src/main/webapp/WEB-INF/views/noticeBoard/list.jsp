@@ -137,11 +137,11 @@
 
 
 			</ul>
-					
-			<button id='regBtn' type="button" class="btn btn-success">
-				공지사항 작성
-			</button>
-			
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<button id='regBtn' type="button" class="btn btn-success">
+					공지사항 작성</button>
+			</sec:authorize>
+
 		</div>
 		<!--  end Pagination -->
 	</div>
