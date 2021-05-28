@@ -681,24 +681,25 @@ img[alt="판매자 이미지"]
 }
 
 .pagination{
-    position: relative;
-    bottom: 60px;
-    right: 350px;
+	position: absolute;
+    left: 700px;
 }
 
 #searchForm{
     margin-top: 50px;
-    position: relative;
-    left: 551px;
-    bottom: 45px;
+    position: absolute;
+    left: 730px;
 }
 
 #regBtn{
 	position: absolute;
-    bottom: -615px;
-    left: 1180px;
+    left: 1110px;
+    bottom: -648px;
 }
 
+footer{
+	margin-top: 150px;
+}
 /*contents*/
 .content_head{
 	display: flex;
