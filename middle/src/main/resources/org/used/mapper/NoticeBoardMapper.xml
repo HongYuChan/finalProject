@@ -39,20 +39,54 @@
  			notice_date = SYSDATE
  				where notice_id = #{notice_id}
  	</update>
-
+ 	
+		<sql id="criteria">
+			<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+				<foreach item="type" collection="typeArr">
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 'T'.toString()">
+								notice_title like '%'||#{keyword}||'%'
+							</when>
+							<when test="type == 'C'.toString()">
+								notice_contents like '%'||#{keyword}||'%'
+							</when>
+							<when test="type == 'W'.toString()">
+								notice_writer like '%'||#{keyword}||'%'
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</sql>
+		
 	<select id="getListWithPaging" resultType="org.used.domain.NoticeBoardVO">
-		<![CDATA[
-	select 
-		notice_id, notice_title, notice_contents, notice_writer, notice_date
-	from
-		(
-		select /*+index_desc(notice SYS_C007430)*/
-			rownum rn, notice_id, notice_title, notice_contents, notice_writer, notice_date
-		from 
-			notice
-		where rownum <= #{pageNum} * #{amount}
-		)
-	where rn > (#{pageNum} -1) * #{amount}
+	<![CDATA[
+		select 
+			notice_id, notice_title, notice_contents, notice_writer, notice_date
+		from
+			(
+			select /*+index_desc(notice SYS_C007430)*/
+				rownum rn, notice_id, notice_title, notice_contents, notice_writer, notice_date
+			from 
+				notice
+			where
+	]]>		
+
+		<include refid="criteria"></include>
+
+	<![CDATA[		
+			 rownum <= #{pageNum} * #{amount}
+			)
+		where rn > (#{pageNum} -1) * #{amount}
 	]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from notice where
+		
+		<include refid="criteria"></include>
+		
+		notice_id > 0
 	</select>
 </mapper>

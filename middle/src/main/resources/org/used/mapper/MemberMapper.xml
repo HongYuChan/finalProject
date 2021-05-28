@@ -7,7 +7,7 @@
 		<![CDATA[select * from member where user_id > 0]]>
 	</select>
 
-	<select id="read" resultType="org.used.domain.MemberVO">
+	<select id="mypageRead" resultType="org.used.domain.MemberVO">
 		select * from member where user_id = #{user_id}
 	</select>
 
@@ -22,9 +22,81 @@
 		where user_id = #{user_id}
 	</update>
 	
+	<insert id="profile_insert">
+		insert into member_img 
+		value(#{user_id}, #{uploadfolder}, #{fileName}, #{uuid})
+	</insert>
+	
 	<select id="readImg" resultType="org.used.domain.UserImageVO">
 		select * from member_img where user_id = #{user_id}
 	</select>
 	
 	
+
+	<resultMap type="org.used.domain.MemberVO" id="memberMap">
+		<id property="user_id" column="user_id" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="nickname" column="nickname" />
+		<result property="email" column="email" />
+		<result property="phone_number" column="phone_number" />
+		<result property="address" column="address" />
+		<result property="evaluation" column="evaluation" />
+		<result property="name" column="name" />
+		<collection property="authList" resultMap="authMap">
+		</collection>
+	</resultMap>
+
+	<resultMap type="org.used.domain.AuthVO" id="authMap">
+		<result property="user_id" column="user_id" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+	<select id="read" resultMap="memberMap">
+		select
+		a.user_id, id, password, enabled, nickname, email, phone_number, address,
+		evaluation, name, b.auth
+		from member_auth b
+		left outer join member a on a.user_id = b.user_id
+		where id = #{id}
+	</select>
+
+	<insert id="create" parameterType="org.used.domain.MemberVO">
+		insert all
+		into member(
+		user_id,
+		id,
+		nickname,
+		email,
+		phone_number,
+		address,
+		name,
+		password)
+		values(
+		SEQ_MEMBER.NEXTVAL,
+		#{id},
+		#{nickname},
+		#{email},
+		#{phone_number},
+		#{address},
+		#{name},
+		#{password})
+		
+		into member_auth(
+		user_id, 
+		auth
+		)values(
+		SEQ_MEMBER.NEXTVAL, 
+		'ROLE_USER'
+		)select * from dual
+	</insert>
+	
+	<select id="idCheck" resultType="int">
+		select count(*) from member where id = #{id}
+	</select>
+	
+	<select id="userIdSearch" resultType="String">
+		select id from member where name = #{name} and phone_number = #{phone_number}
+	</select>
+
 </mapper>

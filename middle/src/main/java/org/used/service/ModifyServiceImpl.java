@@ -18,7 +18,7 @@ public class ModifyServiceImpl implements ModifyService {
 	
 	@Override
 	public MemberVO get(int user_id) {
-		return mapper.read(user_id);
+		return mapper.mypageRead(user_id);
 	}
 
 	@Override

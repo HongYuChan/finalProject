@@ -13,7 +13,4 @@ public interface UserMainService {
 	
 	public UserImageVO member_img(int user_id);
 	
-	public ProductVO product(int product_id);
-	
-	public List<WishListVO> wishlist(int wish_id);
 }

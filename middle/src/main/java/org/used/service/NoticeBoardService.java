@@ -1,4 +1,4 @@
-package org.used.service;
+ package org.used.service;
 
 import java.util.List;
 
@@ -19,6 +19,6 @@ public interface NoticeBoardService {
 	public List<NoticeBoardVO> getList(Criteria cri);
 
 	
-//	public int getTotal(Criteria cri);
+	public int getTotal(Criteria cri);
 	
 }

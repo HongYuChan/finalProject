@@ -1,5 +1,7 @@
 package org.used.domain;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -13,4 +15,10 @@ public class MemberVO {
 	private String address;
 	private String name;
 	private int evaluation;
+
+	private int enabled;
+	private List<AuthVO> authList;
+	
+	
+
 }
