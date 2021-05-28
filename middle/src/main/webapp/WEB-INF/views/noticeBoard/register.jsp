@@ -22,8 +22,8 @@
 						<label>글쓴이</label> 
 						<input class="form-control" name='notice_writer'>
 					</div>
-					<button type="submit" class="btn btn-default">작성 완료</button>
-					<button type="reset" class="btn btn-default">초기화</button>
+					<button type="submit" class="btn btn-success">작성 완료</button>
+					<button type="reset" class="btn btn-warning">초기화</button>
 				</form>
 
 			</div>

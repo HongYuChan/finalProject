@@ -94,7 +94,7 @@
 						value='<c:out value="${pageMaker.cri.pageNum}"/>' /> <input
 						type='hidden' name='amount'
 						value='<c:out value="${pageMaker.cri.amount}"/>' />
-					<button class='btn btn-default'>Search</button>
+					<button class='btn btn-secondary'>검색</button>
 				</form>
 			</div>
 		</div>

@@ -33,7 +33,7 @@
 
 
 					<div class="form-group">
-						<label>product_id</label> <input type="hidden" class="form-control"
+						<label>글번호</label> <input type="hidden" class="form-control"
 							name='product_id' value='<c:out value="${product.product_id }"/>'
 							readonly="readonly">
 					</div>

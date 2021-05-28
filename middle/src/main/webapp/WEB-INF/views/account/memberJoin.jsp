@@ -22,16 +22,17 @@
 <!-- daum 도로명주소 찾기 api -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
-<body>
+<body style="background-color: rgb(251, 247, 242);" >
 	<article class="container" style="margin: 0 auto;
-    width:80%;">
+    width:80%; position: absolute; left: 32%;">
 	<br>
 		<div class="page-header">
-			<div class="col-md-6 col-md-offset-3">
+
+		</div>
+		<div class="col-sm-6 col-md-offset-3" style="background-color: white; box-shadow: rgb(0 0 0 / 10%) 0px 3px 6px 0px;">
+			<div class="col-md-6 col-md-offset-3" style="position: relative; left: 31%;">
 				<h3>회원가입</h3>
 			</div>
-		</div>
-		<div class="col-sm-6 col-md-offset-3">
 			<form action="/account/memberCreate" method="post" id="usercheck"
 				name="member">
 				<div class="form-group">
@@ -99,7 +100,6 @@
 						<button class="cencle btn btn-danger" type="button">취소</button>
 				</div>
 				
-				</div>
 			</form>
 		</div>
 	</article>
