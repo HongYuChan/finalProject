@@ -45,7 +45,7 @@ public class NoticeBoardController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		
 	}
-	@ResponseBody
+	
 	@PostMapping("/register")
 	public String register(NoticeBoardVO noticeBoard, RedirectAttributes rttr) {
 		
