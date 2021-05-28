@@ -11,12 +11,12 @@
 					<span aria-hidden="true"> &times; </span>
 				</button>
 			</div>
-
+			<form method='post' action="/login">
 			<div class="modal-body">
 
 				<div class="modal-body__wrap">
 					
-					<form method='post' action="/login">
+					
 					
 						<div class="login-modal__input">
 
@@ -34,7 +34,7 @@
 								<div class="kakao-login__img"></div>
 								Login with Kakao
 							</button>
-							<button type="button" id="login-btn__fb" class="login-btn">
+							<button type="button" id="login-btn__kakao" class="login-btn">
 								<div class="fb-login__img"></div>
 								Login with Facebook
 							</button>
@@ -42,10 +42,12 @@
 						<input type="hidden" name="${_csrf.parameterName}"
 	value="${_csrf.token}" />
 						
-					</form>
+					
 				</div>
 
 			</div>
+			
+			</form>
 			<div class="modal-footer">
 				<div class="modal-footer__wrap">
 					<div class="login-footer login-footer__signup">

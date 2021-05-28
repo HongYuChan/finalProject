@@ -73,7 +73,7 @@ public class AccountController {
 		service.memberJoin(vo);
 		System.out.println("1");
 
-		mav.setViewName("account/customLogin");
+		mav.setViewName("redirect:/product/main");
 		System.out.println("2");
 
 		return mav;

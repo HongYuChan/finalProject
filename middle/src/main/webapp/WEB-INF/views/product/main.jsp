@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%-- <%@include file="../includes/header.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,7 +45,7 @@
     <header class="header-main">
         <div class="header-main__content content-center">
             <a href="main.html">
-                <h1>Shop</h1>
+                <h1>DAITSO</h1>
             </a>
             <div class="header-input">
                 <input type="text" placeholder="Search" id="header-input__v1">
@@ -54,17 +56,17 @@
 
             <div class="header-btn">
                 <a href="#" class="header-btn__text">
-                    Sale
+                    상품판매
                 </a>
                 <a href="#" class="header-btn__text">
-                    MyShop
+                    마이페이지
                 </a>
                 <a href="#" class="header-btn__text">
-                    Chat
+                    채팅
                 </a>
                <sec:authorize access="isAnonymous()">
 				<button type="button" class="header-btn__text header-login__btn" id="header-login__modal" data-bs-target="#modal-wrap" data-bs-toggle="modal">
-                    Login
+                    로그인
                 </button>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">

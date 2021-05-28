@@ -108,12 +108,12 @@
 				
 
 			<div class="header-btn">
-				<a href="#" class="header-btn__text"> Sale </a> <a href="#"
-					class="header-btn__text"> MyShop </a> <a href="#"
-					class="header-btn__text"> Chat </a>
+				<a href="#" class="header-btn__text"> 상품판매 </a> <a href="#"
+					class="header-btn__text"> 마이페이지 </a> <a href="#"
+					class="header-btn__text"> 채팅 </a>
 				<sec:authorize access="isAnonymous()">
 				<button type="button" class="header-btn__text header-login__btn" id="header-login__modal" data-bs-target="#modal-wrap" data-bs-toggle="modal">
-                    Login
+                    로그인
                 </button>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
